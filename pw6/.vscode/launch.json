@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/killianmathias/Library/Mobile Documents/com~apple~CloudDocs/Cours/L3/S5/RESEAUX/TP/TP6/cs",
+      "program": "/Users/killianmathias/Library/Mobile Documents/com~apple~CloudDocs/Cours/L3/S5/RESEAUX/TP/TP6/cs/build/Debug/outDebug"
+    }
+  ]
+}
