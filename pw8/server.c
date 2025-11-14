@@ -7,12 +7,17 @@
 #include <unistd.h>
 #include <strings.h>
 
-
+#define PI 100003
+#define DATATOSEND 102
 int main( int argc, char * argv[]){
     if (argc != 2){
         perror("Usage : ./server port");
         return 1;
     }
+
+    FILE* pi_file = fopen("./valeur_pi.txt", "r");
+    char* pi_string = malloc(PI * sizeof(char*));
+    int number_of_pi = fscanf(pi_file, "%s", pi_string);
 
     int port = atoi(argv[1]);
 
@@ -55,10 +60,13 @@ int main( int argc, char * argv[]){
     }
     fprintf(stdout, "Client connecté\n");
 
-    const char *msg = "Je suis le serveur \n";
-    send(socketClient, msg, strlen(msg), 0);
-
+    // send(socketClient, pi_string, DATATOSEND, 0); // Question 1.1
+    // send(socketClient, pi_string+2, DATATOSEND-2, 0); // Question 1.2
+    ssize_t response = send(socketClient, pi_string, PI, 0);
+     fprintf(stdout,"Données envoyées : %d octets.\n", response);
     close(socket1);
+
+    free(pi_string);
 
     printf("Server closed.\n");
     return 0;
